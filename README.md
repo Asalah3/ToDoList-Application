@@ -21,24 +21,25 @@ The android app lets you:
 
 ## ScreenShots
 <p align="center">
-   <img src="https://user-images.githubusercontent.com/88517428/230746645-0023a5ec-3afe-4ad0-9b11-ee11e10ec813.png" alt="Build Status" width="300">
-   <img src="https://user-images.githubusercontent.com/88517428/230746647-f945fadd-7803-498e-9162-9480f9372a35.png" alt="Build Status" width="300">
-   <img src="https://user-images.githubusercontent.com/88517428/230746649-67d8f1b6-b259-4ed4-85b8-7c84533580f4.png" alt="Build Status" width="300">
+   <img src="https://user-images.githubusercontent.com/88517428/230777634-b51906de-dee5-44c2-b05f-b41e82200557.png" alt="Build Status" width="300">
+   <img src="https://user-images.githubusercontent.com/88517428/230777639-2024bc06-4754-4b28-9ee4-23c0564c732e.png" alt="Build Status" width="300">
+   <img src="https://user-images.githubusercontent.com/88517428/230777641-437f8ab1-ffb9-40ab-8d35-fe66a2b0bff3.png" alt="Build Status" width="300">
 </p>
 
 <p align="center">
-   <img src="https://user-images.githubusercontent.com/88517428/230746650-92a028a4-faf6-40a1-9383-60329b52a3ab.png" alt="Build Status" width="300">
-   <img src="https://user-images.githubusercontent.com/88517428/230746652-11e782e2-ded2-42d2-bf5d-90e74861a323.png" alt="Build Status" width="300">
-   <img src="https://user-images.githubusercontent.com/88517428/230746654-4d1be886-5d6a-4c3b-b703-7be17caf4774.png" alt="Build Status" width="300">
+   <img src="https://user-images.githubusercontent.com/88517428/230777643-b26ddd49-f560-40f3-896a-ec93e1122e18.png" alt="Build Status" width="300">
+   <img src="https://user-images.githubusercontent.com/88517428/230777645-db40094c-48c3-4ec5-a7cb-8d9fc61f086b.png" alt="Build Status" width="300">
+   <img src="https://user-images.githubusercontent.com/88517428/230777646-bf0f6455-5293-4779-a678-fc317947fef2.png" alt="Build Status" width="300">
 </p>
 
 <p align="center">
-   <img src="https://user-images.githubusercontent.com/88517428/230746655-ddbaf763-e058-41cf-a04a-a107f8f0762c.png" alt="Build Status" width="300">
-   <img src="https://user-images.githubusercontent.com/88517428/230746657-7f7b8e41-6e62-4ce3-9439-b5292926b5fe.png" alt="Build Status" width="300">
-   <img src="https://user-images.githubusercontent.com/88517428/230746658-c34bf03e-eea2-43f7-b1b5-284852aeb3fb.png" alt="Build Status" width="300">
+   <img src="https://user-images.githubusercontent.com/88517428/230777650-2cde8f7a-ee95-4133-89f2-822d57242963.png" alt="Build Status" width="300">
+   <img src="https://user-images.githubusercontent.com/88517428/230777652-bb53fcb5-3d0c-4514-bcc4-e7a3a9e8c384.png" alt="Build Status" width="300">
+   <img src="https://user-images.githubusercontent.com/88517428/230777653-31dc78ba-2e4e-4283-87f9-8bcf90e1e631.png" alt="Build Status" width="300">
 </p>
 
 <p align="center">
-   <img src="https://user-images.githubusercontent.com/88517428/230746659-6dfa5f1f-3df3-4d51-9349-4179a88456f1.png" alt="Build Status" width="300">
-   <img src="https://user-images.githubusercontent.com/88517428/230746661-f74e8d4b-b677-498d-b261-3abd9d16fec7.png" alt="Build Status" width="300">
+   <img src="https://user-images.githubusercontent.com/88517428/230777654-9ac24c1d-da5f-4031-8876-9fc1045a4897.png" alt="Build Status" width="300">
+   <img src="https://user-images.githubusercontent.com/88517428/230777655-33019f23-6920-4ab6-9b94-9b8ade24c512.png" alt="Build Status" width="300">
+   <img src="https://user-images.githubusercontent.com/88517428/230777657-115bd1c0-3db7-42fd-8896-b5559233ff17.png" alt="Build Status" width="300">
 </p>
