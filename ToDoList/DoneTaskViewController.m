@@ -12,7 +12,8 @@
 @property (weak, nonatomic) IBOutlet UITextView *taskDescription;
 @property (weak, nonatomic) IBOutlet UIDatePicker *taskDate;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *taskPriority;
-@property (weak, nonatomic) IBOutlet UILabel *taskStatus;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *taskStatusControl;
+
 @end
 
 @implementation DoneTaskViewController
@@ -21,8 +22,14 @@
     [super viewDidLoad];
     _taskName.text =_task.taskName;
     _taskDescription.text = _task.taskDescription;
-    _taskStatus.text = _task.taskStatus;
     _taskDate.date = _task.taskDate;
+    if([_task.taskStatus  isEqual: @"ToDo"]){
+        _taskStatusControl.selectedSegmentIndex = 0;
+    }else if([_task.taskStatus  isEqual: @"In Prograss"]){
+        _taskStatusControl.selectedSegmentIndex = 1;
+    }else if([_task.taskStatus  isEqual: @"Done"]){
+        _taskStatusControl.selectedSegmentIndex = 2;
+    }
     if([_task.taskPriority  isEqual: @"Low"]){
         _taskPriority.selectedSegmentIndex = 0;
     }else if([_task.taskPriority  isEqual: @"Medium"]){

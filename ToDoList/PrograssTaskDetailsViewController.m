@@ -14,7 +14,8 @@
 @property (weak, nonatomic) IBOutlet UITextView *taskDescription;
 @property (weak, nonatomic) IBOutlet UIDatePicker *taskDate;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *taskPriority;
-@property (weak, nonatomic) IBOutlet UILabel *taskStatus;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *taskStatusControl;
+
 @property NSUserDefaults *def;
 @property NSMutableArray <Task*> *tasksArray;
 @property NSMutableArray <Task*> *doneTasksArray;
@@ -28,7 +29,13 @@
     [super viewDidLoad];
     _taskName.text =_task.taskName;
     _taskDescription.text = _task.taskDescription;
-    _taskStatus.text = _task.taskStatus;
+    if([_task.taskStatus  isEqual: @"ToDo"]){
+        _taskStatusControl.selectedSegmentIndex = 0;
+    }else if([_task.taskStatus  isEqual: @"In Prograss"]){
+        _taskStatusControl.selectedSegmentIndex = 1;
+    }else if([_task.taskStatus  isEqual: @"Done"]){
+        _taskStatusControl.selectedSegmentIndex = 2;
+    }
     _taskDate.date = _task.taskDate;
     if([_task.taskPriority  isEqual: @"Low"]){
         _taskPriority.selectedSegmentIndex = 0;
@@ -57,56 +64,6 @@
     }
 }
 
-- (IBAction)addToDone:(id)sender {
-    if([_taskName.text  isEqual: @""]){
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Warrning" message:@"Don't Add An Empty Task Name" preferredStyle: UIAlertControllerStyleActionSheet];
-        
-        UIAlertAction *yes = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-            [self dismissViewControllerAnimated:YES completion:nil];
-        }];
-        [alert addAction:yes];
-        
-        [self presentViewController:alert animated:YES completion:^{    }];
-        
-    }else{
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Save Edits" message:@"Do You Want To Save Edits" preferredStyle: UIAlertControllerStyleActionSheet];
-        
-        UIAlertAction *yes = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [self->_tasksArray removeObjectAtIndex:self->_taskIndex];
-            NSError *error;
-            NSData *savedData = [NSKeyedArchiver archivedDataWithRootObject:self->_tasksArray requiringSecureCoding:YES error:&error];
-            [self->_def setObject:savedData forKey:@"inPrograssTasks"];
-
-            self->_doneTask.taskName = self->_taskName.text;
-            self->_doneTask.taskDescription = self->_taskDescription.text;
-            self->_doneTask.taskDate = self->_taskDate.date;
-            switch (self->_taskPriority.selectedSegmentIndex) {
-                case 0:
-                    self->_doneTask.taskPriority = @"Low";
-                    break;
-                case 1:
-                    self->_doneTask.taskPriority = @"Medium";
-                    break;
-                case 2:
-                    self->_doneTask.taskPriority = @"High";
-                    break;
-            }
-            self->_doneTask.taskStatus = @"Done";
-        
-            [self->_doneTasksArray addObject:self->_doneTask];
-            NSData *savedDoneData = [NSKeyedArchiver archivedDataWithRootObject:self->_doneTasksArray requiringSecureCoding:YES error:&error];
-            [self->_def setObject:savedDoneData forKey:@"doneTasks"];
-        
-            DoneViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"done"];
-            InPrograssViewController *inPrograssViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"inPrograss"];
-            [self.navigationController pushViewController:inPrograssViewController animated:YES];
-            [viewController.doneTable reloadData];
-        }];
-        [alert addAction:yes];
-        [self presentViewController:alert animated:YES completion:^{    }];
-    }
-    
-}
 - (IBAction)editTask:(id)sender {
     if([_taskName.text  isEqual: @""]){
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Warrning" message:@"Don't Add An Empty Task Name" preferredStyle: UIAlertControllerStyleActionSheet];
@@ -136,13 +93,51 @@
                     self->_tasksArray[self->_taskIndex].taskPriority = @"High";
                     break;
             }
-            self->_tasksArray[self->_taskIndex].taskStatus = @"ToDo";
-            NSError *error;
-            NSData *savedData = [NSKeyedArchiver archivedDataWithRootObject:self->_tasksArray requiringSecureCoding:YES error:&error];
-            [self->_def setObject:savedData forKey:@"inPrograssTasks"];
-            InPrograssViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"inPrograss"];
-            [viewController.inPrograssTable reloadData];
-            [self.navigationController pushViewController:viewController animated:YES];
+            switch (self->_taskStatusControl.selectedSegmentIndex) {
+                case 1:{
+                    self->_tasksArray[self->_taskIndex].taskStatus = @"In Prograss";
+                    NSError *error;
+                    NSData *savedData = [NSKeyedArchiver archivedDataWithRootObject:self->_tasksArray requiringSecureCoding:YES error:&error];
+                    [self->_def setObject:savedData forKey:@"inPrograssTasks"];
+                    InPrograssViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"inPrograss"];
+                    [viewController.inPrograssTable reloadData];
+                    [self.navigationController pushViewController:viewController animated:YES];
+                }
+                    break;
+                case 2:{
+                    [self->_tasksArray removeObjectAtIndex:self->_taskIndex];
+                    NSError *error;
+                    NSData *savedData = [NSKeyedArchiver archivedDataWithRootObject:self->_tasksArray requiringSecureCoding:YES error:&error];
+                    [self->_def setObject:savedData forKey:@"inPrograssTasks"];
+
+                    self->_doneTask.taskName = self->_taskName.text;
+                    self->_doneTask.taskDescription = self->_taskDescription.text;
+                    self->_doneTask.taskDate = self->_taskDate.date;
+                    switch (self->_taskPriority.selectedSegmentIndex) {
+                        case 0:
+                            self->_doneTask.taskPriority = @"Low";
+                            break;
+                        case 1:
+                            self->_doneTask.taskPriority = @"Medium";
+                            break;
+                        case 2:
+                            self->_doneTask.taskPriority = @"High";
+                            break;
+                    }
+                    self->_doneTask.taskStatus = @"Done";
+                
+                    [self->_doneTasksArray addObject:self->_doneTask];
+                    NSData *savedDoneData = [NSKeyedArchiver archivedDataWithRootObject:self->_doneTasksArray requiringSecureCoding:YES error:&error];
+                    [self->_def setObject:savedDoneData forKey:@"doneTasks"];
+                
+                    DoneViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"done"];
+                    InPrograssViewController *inPrograssViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"inPrograss"];
+                    [self.navigationController pushViewController:inPrograssViewController animated:YES];
+                    [viewController.doneTable reloadData];
+                }
+
+                    break;
+            }
             }];
             [alert addAction:yes];
             [self presentViewController:alert animated:YES completion:^{    }];
