@@ -39,7 +39,7 @@ The android app lets you:
 </p>
 
 <p align="center">
-   <img src="https://user-images.githubusercontent.com/88517428/230777655-33019f23-6920-4ab6-9b94-9b8ade24c512.png" alt="Build Status" width="300">
    <img src="https://user-images.githubusercontent.com/88517428/230777657-115bd1c0-3db7-42fd-8896-b5559233ff17.png" alt="Build Status" width="300">
    <img src="https://user-images.githubusercontent.com/88517428/230777654-9ac24c1d-da5f-4031-8876-9fc1045a4897.png" alt="Build Status" width="300">
+   <img src="https://user-images.githubusercontent.com/88517428/230777655-33019f23-6920-4ab6-9b94-9b8ade24c512.png" alt="Build Status" width="300">
 </p>
